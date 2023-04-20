@@ -1,6 +1,6 @@
 ﻿using GraphApp.Objects;
 
-namespace GraphApp.Algoritms.Сonnectivity
+namespace GraphConnectivity.Сonnectivity
 {
     public class GraphСonnectivity : AbstarctСonnectivity
     {

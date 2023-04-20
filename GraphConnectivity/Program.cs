@@ -1,4 +1,4 @@
-﻿using GraphApp.Algoritms.Сonnectivity;
+﻿using GraphConnectivity.Сonnectivity;
 using GraphApp.Extentions;
 using GraphApp.IO;
 using GraphApp.Objects;
@@ -17,7 +17,7 @@ try
     if (graph.IsDirected())
     {
         var directedConnectivity = new DirectedGraphСonnectivity(graph);
-        bool isWeekConnected = directedConnectivity.IsGraphWeekСonnectivity();
+        bool isWeekConnected = directedConnectivity.IsGraphWeekСonnected();
 
         output.WriteLine($"Граф {(isWeekConnected ? "слабо связен" : "не связен")}");
         output.WriteLine("Компоненты слабой связности: ");
@@ -39,7 +39,7 @@ try
     else
     {
         var connectivity = new GraphСonnectivity(graph);
-        bool isConnected = connectivity.IsGraphСonnectivity();
+        bool isConnected = connectivity.IsGraphСonnected();
         output.WriteLine($"Граф {(isConnected ? "связен" : "не связен")}");
         foreach (var c in connectivity.GetСonnectivityComponents())
         {

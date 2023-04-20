@@ -1,7 +1,7 @@
 ﻿using GraphApp.Extentions;
 using GraphApp.Objects;
 
-namespace GraphApp.Algoritms.Сonnectivity
+namespace GraphConnectivity.Сonnectivity
 {
     public abstract class AbstarctСonnectivity
     {
@@ -27,7 +27,7 @@ namespace GraphApp.Algoritms.Сonnectivity
             var allVertex = new List<int>();
             for (int i = 0; i < matrix.Count; i++) { allVertex.Add(i); }
 
-            if (IsMatrixСonnectivity(matrix))
+            if (IsMatrixСonnected(matrix))
             {
                 result.Add(allVertex);
                 return result;
