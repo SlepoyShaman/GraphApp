@@ -58,10 +58,12 @@ namespace GraphBridgesAndHinges.Algoritms
                     vertexes.AddRange(BridgesbyDFS(to, bridges, hinges, components, v));
                     count++;
                     components.Tup[v] = Math.Min(components.Tup[v], components.Tup[to]);
-                    if (components.Tup[to] > components.Tin[v])
+                    if (components.Tup[to] >= components.Tin[v])
                     {
-                        bridges.Add((v, to));
-                        hinges.Add(v);
+                        if(components.Tup[to] != components.Tin[v]) 
+                            bridges.Add((v, to));
+                        if(p != -1 & !hinges.Contains(v)) 
+                            hinges.Add(v);
                     }
                 }
             }

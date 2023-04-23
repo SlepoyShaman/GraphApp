@@ -11,8 +11,4 @@
     <ProjectReference Include="..\GraphApp\GraphApp.csproj" />
   </ItemGroup>
 
-  <ItemGroup>
-    <Folder Include="Files\" />
-  </ItemGroup>
-
 </Project>
