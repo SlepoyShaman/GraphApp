@@ -475,3 +475,4 @@ $RECYCLE.BIN/
 
 # Windows shortcuts
 *.lnk
+/GraphBridgesAndHinges/Properties/launchSettings.json

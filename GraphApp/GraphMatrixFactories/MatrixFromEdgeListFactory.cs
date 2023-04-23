@@ -2,7 +2,7 @@
 {
     public class MatrixFromEdgeListFactory : MatrixFactory
     {
-        public MatrixFromEdgeListFactory(string filename) : base(filename) { }
+        public MatrixFromEdgeListFactory(string filepath) : base(filepath) { }
         
         public override List<List<int>> GetMatrix()
         {

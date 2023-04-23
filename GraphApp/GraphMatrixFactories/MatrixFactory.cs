@@ -3,9 +3,9 @@
     public abstract class MatrixFactory
     {
         protected readonly string _path;
-        public MatrixFactory(string filename)
+        public MatrixFactory(string filepath)
         {
-            _path = $"Files\\{filename}";
+            _path = filepath;
         }
 
         public abstract List<List<int>> GetMatrix(); 
