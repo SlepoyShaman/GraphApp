@@ -24,5 +24,21 @@ namespace GraphApp.Extentions
             return maxIndex;
         }
 
+        public static int MinValueIndex(this int[] nums)
+        {
+            var min = nums[0];
+            var minIndex = 0;
+            for(int i = 0; i < nums.Length;i++)
+            {
+                if (min > nums[i]) 
+                { 
+                    minIndex = i;
+                    min = nums[i];
+                }
+            }
+
+            return minIndex;
+        }
+
     }
 }
