@@ -12,11 +12,11 @@
                 while ((line = reader.ReadLine()) != null)
                 {
                     result.Add(
-                            line.Split(' ').Select(s => Convert.ToInt32(s)).ToList()
+                            line.Split(' ').Where(s => s.Any()).Select(s => Convert.ToInt32(s)).ToList()
                         );
                 }
             }
-            return result;
+            return new List<List<int>>();
         }
     }
 }

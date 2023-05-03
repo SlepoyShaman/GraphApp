@@ -13,9 +13,9 @@ namespace GraphApp.IO
         "\r\n-o \"output_file_path\" - файл для выходных данных";
         private readonly Dictionary<string, Func<string, MatrixFactory>> factories = new()
         {
-            ["-e"] = (string path) => new MatrixFromEdgeListFactory(path),
-            ["-m"] = (string path) => new MatrixFromMatrixFactory(path),
-            ["-l"] = (string path) => new MatrixFromAdjacencyListFactory(path)
+            ["-e"] = (path) => new MatrixFromEdgeListFactory(path),
+            ["-m"] = (path) => new MatrixFromMatrixFactory(path),
+            ["-l"] = (path) => new MatrixFromAdjacencyListFactory(path)
         };
 
         public InputFlagReader(string[] args)
@@ -40,8 +40,8 @@ namespace GraphApp.IO
                 }
             }
 
-            if(factory == null) { throw new Exception("Укажите путь к файлу!"); }
-                
+            if (factory == null) { throw new Exception("Укажите путь к файлу!"); }
+
             return factory;
         }
 

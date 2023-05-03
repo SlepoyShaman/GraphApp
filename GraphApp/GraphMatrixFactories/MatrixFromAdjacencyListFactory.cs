@@ -13,7 +13,7 @@
 
                 for(int i = 0; i < lines.Length; i++)
                 {
-                    var numbers = lines[i].Split(' ').Select(s => Convert.ToInt32(s)).ToList();
+                    var numbers = lines[i].Split(' ').Where(s => s.Any()).Select(s => Convert.ToInt32(s)).ToList();
                     for (int j = 1; j < numbers.Count; j++)
                     {
                         result[i][numbers[j] - 1] = 1;

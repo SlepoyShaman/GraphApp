@@ -9,7 +9,7 @@
             using (var reader = new StreamReader(_path))
             {
                 var edges = reader.ReadToEnd().Split('\n').Select(
-                        s => s.Split(' ').Select(s => Convert.ToInt32(s)).ToArray()
+                        s => s.Split(' ').Where(s => s.Any()).Select(s => Convert.ToInt32(s)).ToArray()
                     );
                 int max = edges.Select(e => e.Take(2).Max()).Max();
 
