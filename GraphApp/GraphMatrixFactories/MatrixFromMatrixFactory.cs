@@ -16,7 +16,7 @@
                         );
                 }
             }
-            return new List<List<int>>();
+            return result;
         }
     }
 }

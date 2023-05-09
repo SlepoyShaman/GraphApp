@@ -8,7 +8,7 @@
         {
             using (var reader = new StreamReader(_path))
             {
-                var edges = reader.ReadToEnd().Split('\n').Select(
+                var edges = reader.ReadToEnd().Split('\n').Where(s => s.Any()).Select(
                         s => s.Split(' ').Where(s => s.Any()).Select(s => Convert.ToInt32(s)).ToArray()
                     );
                 int max = edges.Select(e => e.Take(2).Max()).Max();
