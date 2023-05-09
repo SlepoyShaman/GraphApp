@@ -12,7 +12,9 @@ Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "GraphBridgesAndHinges", "Gr
 		{B5277091-7736-45DD-B000-7E175412303B} = {B5277091-7736-45DD-B000-7E175412303B}
 	EndProjectSection
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "GraphShortestWays", "GraphShortestWays\GraphShortestWays.csproj", "{525E09C9-D1C0-4409-AE37-FC744090B16B}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "GraphShortestWays", "GraphShortestWays\GraphShortestWays.csproj", "{525E09C9-D1C0-4409-AE37-FC744090B16B}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "GraphMaxFlow", "GraphMaxFlow\GraphMaxFlow.csproj", "{540F93F3-3137-451E-8725-693FF0990B38}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -36,6 +38,10 @@ Global
 		{525E09C9-D1C0-4409-AE37-FC744090B16B}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{525E09C9-D1C0-4409-AE37-FC744090B16B}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{525E09C9-D1C0-4409-AE37-FC744090B16B}.Release|Any CPU.Build.0 = Release|Any CPU
+		{540F93F3-3137-451E-8725-693FF0990B38}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{540F93F3-3137-451E-8725-693FF0990B38}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{540F93F3-3137-451E-8725-693FF0990B38}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{540F93F3-3137-451E-8725-693FF0990B38}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
