@@ -1,7 +1,5 @@
-﻿
-using GraphApp.Extentions;
+﻿using GraphApp.Extentions;
 using GraphApp.Objects;
-using System.Security.Cryptography.X509Certificates;
 
 namespace GraphMaxFlow.Algoritms
 {
@@ -24,18 +22,33 @@ namespace GraphMaxFlow.Algoritms
             }
         }
 
-        public FlowChecker()
-        {
-            _source = 0;
-            _sink = 5;
-        }
-
         public int FindMaxFlow()
         {
-            return 0;
+            while (true)
+            {
+                var wayToSink = FirstWayToSink(_matrix);
+                if(!wayToSink.Any()) { break; }
+                int minWeight = wayToSink.Min(e => e.weight);
+
+                foreach (var edge in wayToSink)
+                {
+                    if (_graph.IsEdge(edge.v, edge.u))
+                    {
+                        _matrix[edge.v][edge.u] -= minWeight;
+                        _matrix[edge.u][edge.v] += minWeight;
+                    }
+                    else
+                    {
+                        _matrix[edge.v][edge.u] += minWeight;
+                        _matrix[edge.u][edge.v] -= minWeight;
+                    }
+                }
+            }
+
+            return _matrix[_sink].Sum();
         }
 
-        public IEnumerable<(int v, int u, int weight)> FirstWayToSink(List<List<int>> matrix)
+        private IEnumerable<(int v, int u, int weight)> FirstWayToSink(List<List<int>> matrix)
         {
             var result = new List<int>();
             var queue = new Queue<int>();
@@ -70,6 +83,8 @@ namespace GraphMaxFlow.Algoritms
                 if(isSinkFind) { break; }
             }
 
+            if(!isSinkFind) { return new List<(int, int, int)>(); }
+
             int stepVertex = _sink;
             while (stepVertex != _source) 
             {
@@ -87,6 +102,20 @@ namespace GraphMaxFlow.Algoritms
             }
 
             return resultInEdges;
+        }
+
+        private int FindMinWeight(IEnumerable<(int v, int u, int weight)> edges)
+        {
+            int min = edges.First().weight;
+            foreach (var edge in edges)
+            {
+                if (edge.weight < min)
+                {
+                    min = edge.weight;
+                }
+            }
+
+            return min;
         }
 
         private static int FindSource(List<List<int>> matrix)

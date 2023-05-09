@@ -1,20 +1,23 @@
-﻿using GraphApp.Extentions;
+﻿using GraphApp.IO;
+using GraphApp.Objects;
 using GraphMaxFlow.Algoritms;
 
-var matrix = new List<List<int>>()
+try
 {
-    new List<int>{ 0, 1, 1, 0, 0, 0 },
-    new List<int>{ 0, 0, 1, 0, 1, 0 },
-    new List<int>{ 0, 0, 0, 1, 1, 0 },
-    new List<int>{ 0, 0, 0, 0, 0, 1 },
-    new List<int>{ 0, 0, 0, 1, 0, 1 },
-    new List<int>{ 0, 0, 0, 0, 0, 0 }
-};
+    var input = new InputFlagReader(args);
+    var output = new Output(args);
 
-var a = new FlowChecker();
+    if (input.IsArgsContainsHeader())
+    {
+        return;
+    }
 
-var r = a.FirstWayToSink(matrix);
-foreach(var e in r)
+    var graph = new Graph(input.GetFactory());
+    var flowChecker = new FlowChecker(graph);
+
+    output.WriteLine(flowChecker.FindMaxFlow().ToString());
+}
+catch (Exception ex)
 {
-    Console.WriteLine(e);
+    Console.WriteLine(ex.Message);
 }

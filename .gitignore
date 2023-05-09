@@ -477,3 +477,4 @@ $RECYCLE.BIN/
 *.lnk
 /GraphBridgesAndHinges/Properties/launchSettings.json
 /GraphShortestWays/Properties/launchSettings.json
+/GraphMaxFlow/Properties/launchSettings.json
