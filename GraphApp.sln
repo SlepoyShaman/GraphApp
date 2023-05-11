@@ -14,11 +14,11 @@ Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "GraphBridgesAndHinges", "Gr
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "GraphShortestWays", "GraphShortestWays\GraphShortestWays.csproj", "{525E09C9-D1C0-4409-AE37-FC744090B16B}"
 EndProject
-<<<<<<< HEAD
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "GraphMaxFlow", "GraphMaxFlow\GraphMaxFlow.csproj", "{540F93F3-3137-451E-8725-693FF0990B38}"
-=======
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "SpanningTree", "SpanningTree\SpanningTree.csproj", "{9A55F1D6-179E-4FF7-B2B6-6CB0DA75D910}"
->>>>>>> 7766f964eb89b9b8ad146f534d0e4801bd95ec2e
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "GraphMaxFlow", "GraphMaxFlow\GraphMaxFlow.csproj", "{540F93F3-3137-451E-8725-693FF0990B38}"
+EndProject
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "SpanningTree", "SpanningTree\SpanningTree.csproj", "{9A55F1D6-179E-4FF7-B2B6-6CB0DA75D910}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "MapShortestWays", "MapShortestWays\MapShortestWays.csproj", "{46473EE4-C73F-46FE-B014-9AB9C9C153B8}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -42,17 +42,18 @@ Global
 		{525E09C9-D1C0-4409-AE37-FC744090B16B}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{525E09C9-D1C0-4409-AE37-FC744090B16B}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{525E09C9-D1C0-4409-AE37-FC744090B16B}.Release|Any CPU.Build.0 = Release|Any CPU
-<<<<<<< HEAD
 		{540F93F3-3137-451E-8725-693FF0990B38}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
 		{540F93F3-3137-451E-8725-693FF0990B38}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{540F93F3-3137-451E-8725-693FF0990B38}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{540F93F3-3137-451E-8725-693FF0990B38}.Release|Any CPU.Build.0 = Release|Any CPU
-=======
 		{9A55F1D6-179E-4FF7-B2B6-6CB0DA75D910}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
 		{9A55F1D6-179E-4FF7-B2B6-6CB0DA75D910}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{9A55F1D6-179E-4FF7-B2B6-6CB0DA75D910}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{9A55F1D6-179E-4FF7-B2B6-6CB0DA75D910}.Release|Any CPU.Build.0 = Release|Any CPU
->>>>>>> 7766f964eb89b9b8ad146f534d0e4801bd95ec2e
+		{46473EE4-C73F-46FE-B014-9AB9C9C153B8}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{46473EE4-C73F-46FE-B014-9AB9C9C153B8}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{46473EE4-C73F-46FE-B014-9AB9C9C153B8}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{46473EE4-C73F-46FE-B014-9AB9C9C153B8}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
