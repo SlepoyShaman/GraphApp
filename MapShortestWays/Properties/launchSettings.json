@@ -1,8 +1,0 @@
-{
-  "profiles": {
-    "MapShortestWays": {
-      "commandName": "Project",
-      "commandLineArgs": "-m \"C:\\Users\\Никита\\OneDrive\\Рабочий стол\\графы исходные данные\\map_005.txt\" -n 0 0 -d 24 24"
-    }
-  }
-}
