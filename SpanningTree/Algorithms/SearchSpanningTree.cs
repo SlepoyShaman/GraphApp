@@ -69,6 +69,7 @@ namespace SpanningTree.Algorithms
         public static List<List<int>> Prim(List<List<int>> _matrix, out int summ)
         {
             int summa = 0;
+
             // Создаем список, который будет содержать все ребра остовного дерева
             var mst = new List<List<int>>();
 
@@ -78,6 +79,24 @@ namespace SpanningTree.Algorithms
             // Для начала выбираем первую вершину графа в качестве стартовой
             visited.Add(0);
 
+            // список ребер
+            var edges = new List<Tuple<int, int, int>>();
+
+            int n = _matrix.Count;
+
+            // матрицу смежности переводим в список ребер
+            for (int i = 0; i < n; i++)
+            {
+                for (int j = i + 1; j < n; j++)
+                {
+                    if (_matrix[i][j] != 0)
+                    {
+                        edges.Add(new Tuple<int, int, int>(i, j, _matrix[i][j]));
+
+                    }
+                }
+            }
+
             // Пока не включим в остовное дерево все вершины графа
             while (visited.Count < _matrix.Count)
             {
@@ -86,17 +105,14 @@ namespace SpanningTree.Algorithms
                 int u = -1;
                 int v = -1;
 
-                // Ищем ребро с минимальным весом, которое соединяет вершину из visited с вершиной, не входящей в visited
-                foreach (int i in visited)
+                foreach (var edge in edges)
                 {
-                    for (int j = 0; j < _matrix[i].Count; j++)
-                    {
-                        if (!visited.Contains(j) && _matrix[i][j] != 0 && _matrix[i][j] < minWeight)
-                        {
-                            minWeight = _matrix[i][j];
-                            u = i;
-                            v = j;
-                        }
+                    if ((edge.Item3 < minWeight) && 
+                        (visited.Contains(edge.Item1) || visited.Contains(edge.Item2)) &&
+                        (!visited.Contains(edge.Item1) || !visited.Contains(edge.Item2))) {
+                        minWeight = edge.Item3;
+                        u = edge.Item1;
+                        v = edge.Item2;
                     }
                 }
 
@@ -106,6 +122,7 @@ namespace SpanningTree.Algorithms
 
                 // Добавляем новую вершину в visited
                 visited.Add(v);
+                visited.Add(u);
             }
             summ = summa;
             return mst;
@@ -117,74 +134,80 @@ namespace SpanningTree.Algorithms
             int summa = 0;
             int n = _matrix.Count;
             List<List<int>> mst = new List<List<int>>();
-            List<int> components = Enumerable.Range(0, n).ToList();
-            List<int> minEdge = Enumerable.Repeat(-1, n).ToList();
-            List<int> minWeight = Enumerable.Repeat(int.MaxValue, n).ToList();
 
-            int numComponents = n;
-            while (numComponents > 1)
+            // список ребер
+            var edges = new List<List<int>>();
+
+            // матрицу смежности переводим в список ребер
+            for (int i = 0; i < n; i++)
             {
-                // Step 1: Find the minimum edge for each component
-                for (int i = 0; i < n; i++)
+                for (int j = i + 1; j < n; j++)
                 {
-                    foreach (int j in Enumerable.Range(0, n).Where(x => _matrix[i][x] > 0 && components[i] != components[x]))
+                    if (_matrix[i][j] != 0)
                     {
-                        if (_matrix[i][j] < minWeight[components[i]])
-                        {
-                            minWeight[components[i]] = _matrix[i][j];
-                            minEdge[components[i]] = j;
-                        }
-                    }
-                }
-
-                // Step 2: Find the minimum edge that connects two different components
-                for (int i = 0; i < n; i++)
-                {
-                    if (minEdge[i] != -1)
-                    {
-                        int j = minEdge[i];
-                        int temp = i;
-                        if (_matrix[i][j] == 0)
-                        {
-                            int minim = int.MaxValue;
-                            int index = 0;
-                            for (int k = 0; k < components.Count; k++)
-                            {
-                                if (components[k] == i)
-                                {
-                                    if (_matrix[k][j] != 0)
-                                    {
-                                        if (_matrix[k][j] < minim)
-                                        {
-                                            minim = _matrix[k][j];
-                                            index = k;
-                                        }
-                                    }
-                                        
-                                }
-                            }
-                            i = index;
-                        }
-                        if (components[i] != components[j])
-                        {
-                            mst.Add(new List<int> { i+1, j+1, _matrix[i][j]});
-                            summa += _matrix[i][j];
-                            int oldComponent = components[j];
-                            for (int k = 0; k < n; k++)
-                            {
-                                if (components[k] == oldComponent)
-                                {
-                                    components[k] = components[i];
-                                }
-                            }
-                            numComponents--;
-                        }
-                        minEdge[i] = -1;
-                        minWeight[i] = int.MaxValue;
-                        i = temp;
+                        edges.Add(new List<int> { i, j, _matrix[i][j] });
                     }
                 }
             }
+           
+            int[] colors = new int[_matrix.Count];
+            for (int i = 0; i < _matrix.Count; i++) colors[i] = i;
+
+            // количество компонент связности
+            int countTree = colors.Length;
+
+            while(countTree > 1)
+            {
+                // номера минимальных ребер для каждой компоненты связности
+                int[] numMinEdges = new int[_matrix.Count];
+                for (int i = 0; i < n; i++) numMinEdges[i] = -1;
+
+                for (int i = 0; i < edges.Count; i++)
+                {
+                    var e = edges[i];
+
+                    if (colors[e[0]] == colors[e[1]]) continue;
+
+                    // находим принадлежность вершины u к компоненте
+                    int r_u = colors[e[0]];
+
+                    // обновляем минимальное ребро у компоненты
+                    if (numMinEdges[r_u] == -1 || e[2] < edges[numMinEdges[r_u]][2])
+                        numMinEdges[r_u] = i;
+
+                    // находим принадлежность вершины u к компоненте
+                    int r_v = colors[e[1]];
+
+                    // обновляем минимальное ребро у компоненты
+                    if (numMinEdges[r_v] == -1 || e[2] < edges[numMinEdges[r_v]][2])
+                        numMinEdges[r_v] = i;
+
+                }
+
+                // добавление минимальных ребер к каждой компоненте (слияние компонент)
+                for (int i = 0; i < _matrix.Count; i++)
+                {
+                    if (numMinEdges[i] != -1)
+                    {
+                        // узнаем принадлежность к компонентам у обоих вершин из ребра
+                        int r_u = colors[edges[numMinEdges[i]][0]];
+                        int r_v = colors[edges[numMinEdges[i]][1]];
+                        if (r_u == r_v) continue; // случай когда ребро принадлежит одной компоненте - не подходит
+
+                        // производим слияние компонент
+                        for (int j = 0; j < n; j++)
+                            if (colors[j] == r_v) colors[j] = r_u;
+
+                        mst.Add(new List<int> { edges[numMinEdges[i]][0] + 1,
+                            edges[numMinEdges[i]][1] + 1, edges[numMinEdges[i]][2]});
+                        summa += edges[numMinEdges[i]][2];
+
+                        countTree--;
+                    }
+                }
+
+            }
+
             summ = summa;
             return mst;
         }

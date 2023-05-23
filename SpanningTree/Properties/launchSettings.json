@@ -2,7 +2,7 @@
   "profiles": {
     "SpanningTree": {
       "commandName": "Project",
-      "commandLineArgs": "-m matrix_t4_001.txt -s"
+      "commandLineArgs": "-m matrix_t4_011.txt -b"
     }
   }
 }
