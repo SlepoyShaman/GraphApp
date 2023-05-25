@@ -1,0 +1,8 @@
+{
+  "profiles": {
+    "DistanceFromAllVertexes": {
+      "commandName": "Project",
+      "commandLineArgs": "-m matrix_t7_002.txt"
+    }
+  }
+}
