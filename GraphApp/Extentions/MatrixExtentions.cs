@@ -8,7 +8,7 @@
 
             for (int i = 0; i < matrix.Count; i++)
             {
-                if (matrix[v][i] > 0) yield return i;
+                if (matrix[v][i] != 0) yield return i;
             }
         }
 

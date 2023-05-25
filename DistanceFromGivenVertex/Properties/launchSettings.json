@@ -1,0 +1,8 @@
+{
+  "profiles": {
+    "DistanceFromGivenVertex": {
+      "commandName": "Project",
+      "commandLineArgs": "-m matrix_t6_008.txt -n 26 -t"
+    }
+  }
+}

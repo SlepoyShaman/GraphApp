@@ -18,7 +18,9 @@ Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "GraphMaxFlow", "GraphMaxFlo
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "SpanningTree", "SpanningTree\SpanningTree.csproj", "{9A55F1D6-179E-4FF7-B2B6-6CB0DA75D910}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "MapShortestWays", "MapShortestWays\MapShortestWays.csproj", "{46473EE4-C73F-46FE-B014-9AB9C9C153B8}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "MapShortestWays", "MapShortestWays\MapShortestWays.csproj", "{46473EE4-C73F-46FE-B014-9AB9C9C153B8}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "DistanceFromGivenVertex", "DistanceFromGivenVertex\DistanceFromGivenVertex.csproj", "{26788D8C-A649-47DE-A762-89732D22E60F}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -54,6 +56,10 @@ Global
 		{46473EE4-C73F-46FE-B014-9AB9C9C153B8}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{46473EE4-C73F-46FE-B014-9AB9C9C153B8}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{46473EE4-C73F-46FE-B014-9AB9C9C153B8}.Release|Any CPU.Build.0 = Release|Any CPU
+		{26788D8C-A649-47DE-A762-89732D22E60F}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{26788D8C-A649-47DE-A762-89732D22E60F}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{26788D8C-A649-47DE-A762-89732D22E60F}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{26788D8C-A649-47DE-A762-89732D22E60F}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
