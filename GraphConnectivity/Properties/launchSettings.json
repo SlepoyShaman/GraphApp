@@ -1,0 +1,8 @@
+{
+  "profiles": {
+    "GraphConnectivity": {
+      "commandName": "Project",
+      "commandLineArgs": "-m \"C:\\Users\\Никита\\OneDrive\\Рабочий стол\\графы исходные данные\\matrix_t2_010.txt\""
+    }
+  }
+}

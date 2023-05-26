@@ -11,7 +11,7 @@ namespace MapShortestWays.Algoritms
             _map = map;
         }
 
-        public bool FindWay(Point start, Point goal, Func<Point, Point, int> heuristic, out List<Point> way)
+        public int FindWay(Point start, Point goal, Func<Point, Point, int> heuristic, out List<Point> way)
         {
             var closetList = new List<Cell>();
             var openList = new List<Cell>();
@@ -30,7 +30,7 @@ namespace MapShortestWays.Algoritms
                 if (currentCell.Position == goal)
                 {
                     way = GetWayFromCell(currentCell);
-                    return true;
+                    return currentCell.DistanceFromStart;
                 }
                 openList.Remove(currentCell);
                 closetList.Add(currentCell);
@@ -57,7 +57,7 @@ namespace MapShortestWays.Algoritms
             }
 
             way = new List<Point>();
-            return false;
+            return -1;
         }
 
         private List<Point> GetWayFromCell(Cell cell)

@@ -37,13 +37,14 @@ try
     var astar = new Astar(map);
     for (int i = 0; i < heuristics.Length; i++)
     {
-        var isFind = astar.FindWay(start, end, heuristics[i], out List<Point> way);
-        if(!isFind)
+        var distance = astar.FindWay(start, end, heuristics[i], out List<Point> way);
+        if(distance == -1)
         {
             output.WriteLine("Путь не найден!");
             continue;
         }
 
+        output.WriteLine(distance.ToString());
         output.WriteLine(heuristicsNames[i]);
         output.WriteLine($"Путь от {start} до {end}:");
         var waySb = new StringBuilder();

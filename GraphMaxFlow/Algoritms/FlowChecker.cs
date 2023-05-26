@@ -22,7 +22,11 @@ namespace GraphMaxFlow.Algoritms
             }
         }
 
-        public int FindMaxFlow()
+        public int GetSource() => _source;
+
+        public int GetSink() => _sink;
+
+        public int FindMaxFlow(out List<List<int>> maxFlowMatrix)
         {
             while (true)
             {
@@ -45,6 +49,7 @@ namespace GraphMaxFlow.Algoritms
                 }
             }
 
+            maxFlowMatrix = _matrix.Select(l => l.ToList()).ToList();
             return _matrix[_sink].Sum();
         }
 

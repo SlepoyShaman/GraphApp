@@ -41,7 +41,8 @@ namespace MapShortestWays.Objects
                 var neighbor = new Cell(point.X, point.Y)
                 {
                     CameFrom = cell,
-                    DistanceFromStart = cell.DistanceFromStart + 1 + this[point.X, point.Y],
+                    DistanceFromStart = cell.DistanceFromStart + 1 
+                        + Math.Abs(this[point.X, point.Y] - this[cell.Position.X, cell.Position.Y]),
                 };
 
                 result.Add(neighbor);

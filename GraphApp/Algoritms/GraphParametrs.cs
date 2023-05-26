@@ -91,16 +91,29 @@ namespace GraphApp.Algoritms
         }
         private static List<List<int>> MakeDistancesMatrix(Graph graph)
         {
+            var inf = 100000;
             var distanсesMatrix = graph.AdjacencyMatrix();
+            for(int i = 0; i < distanсesMatrix.Count; i++)
+            {
+                for(int j = 0; j < distanсesMatrix.Count; j++)
+                {
+                    if (distanсesMatrix[i][j] == 0)
+                    {
+                        distanсesMatrix[i][j] = inf;
+                    }
+                }
+            }
+
             for (int k = 0; k < distanсesMatrix.Count; k++)
             {
                 for (int i = 0; i < distanсesMatrix.Count; i++)
                 {
                     for (int j = 0; j < distanсesMatrix.Count; j++)
                     {
-                        if (distanсesMatrix[i][k] != 0 & distanсesMatrix[k][j] != 0 & i != j)
-                            distanсesMatrix[i][j] = Math.Min(distanсesMatrix[i][k] + distanсesMatrix[k][j],
-                                    distanсesMatrix[i][j] == 0 ? Int32.MaxValue : distanсesMatrix[i][j]);
+                        if (i != j)
+                            distanсesMatrix[i][j] = Math.Min(distanсesMatrix[i][k] + distanсesMatrix[k][j], distanсesMatrix[i][j]);
+                        else
+                            distanсesMatrix[i][j] = 0;
                     }
                 }
             }

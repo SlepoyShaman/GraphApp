@@ -3,6 +3,7 @@ using GraphApp.IO;
 using GraphApp.Objects;
 using GraphShortestWays.Algoritms;
 using GraphShortestWays.WayInputKeys;
+using System.Text;
 
 try
 {
@@ -28,8 +29,13 @@ try
 
     var dijkstra = new Dijkstra(graph);
 
-    var shortestWay = dijkstra.FindShortestWay(start, end, out int distance);
-    output.WriteLine($"{start} {shortestWay.ConvertToString()}");
+    var shortestWay = dijkstra.FindShortestWay(start, end, out int distance).ToArray();
+    var waySb = new StringBuilder($"({start}, {shortestWay[0]}, {graph.Weight(start, shortestWay[0])}) ");
+    for(int i = 0; i < shortestWay.Length - 1; i++)
+    {
+        waySb.Append($"({shortestWay[i]}, {shortestWay[i+1]}, {graph.Weight(shortestWay[i], shortestWay[i + 1])}) ");
+    }
+    output.WriteLine(waySb.ToString());
     output.WriteLine(distance.ToString());
 }
 catch (Exception ex)

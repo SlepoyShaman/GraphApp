@@ -5,7 +5,7 @@ namespace GraphApp.IO
     public class InputFlagReader
     {
         private readonly string[] _args;
-        private readonly string _header = "Студент: Илюшин Никита Сергеевич\nГруппа: М3О-219Бк-21\n" +
+        private readonly string _header = "Студенты: Илюшин Никита Сергеевич, Таласов Данил Сергеевич\nГруппа: М3О-219Бк-21\n" +
         "Список ключей: " +
         "-e \"edges_list_file_path\" - файл со списком ребер" +
         "\r\n-m \"adjacency_matrix_file_path\" - файл с матрицей смежности" +
