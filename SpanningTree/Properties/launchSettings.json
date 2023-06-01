@@ -2,7 +2,7 @@
   "profiles": {
     "SpanningTree": {
       "commandName": "Project",
-      "commandLineArgs": "-m matrix_t4_011.txt -b"
+      "commandLineArgs": "-m \"C:\\Users\\Никита\\OneDrive\\Рабочий стол\\графы исходные данные\\matrix_t4_010.txt\" -s"
     }
   }
 }

@@ -1,11 +1,11 @@
-﻿using GraphApp.Extentions;
-using GraphApp.Objects;
+﻿using GraphApp.Objects;
+using System;
 
 namespace GraphShortestWays.Algoritms
 {
     public class Dijkstra
     {
-        private readonly Graph _graph;      
+        private readonly Graph _graph;
         public Dijkstra(Graph graph)
         {
             _graph = graph;
@@ -15,29 +15,42 @@ namespace GraphShortestWays.Algoritms
         {
             var d = new int[_graph.VertexCount()];
             for(int i = 0; i < d.Length; i++) { d[i] = int.MaxValue; }
+            d[start] = 0;
+            var visited = new bool[_graph.VertexCount()];
             var parents = new int[_graph.VertexCount()];
-            var used = new bool[_graph.VertexCount()];
-            var currentVertex = start;
-            parents[currentVertex] = start;
-            d[currentVertex] = 0; 
 
-            while(used.Contains(false))
+            while (!visited[end])
             {
-                var neigbors = _graph.AdjacencyList(currentVertex);
-
-                foreach(var n in neigbors)
+                // выбор необработанной вершины с минимальной пометкой distance
+                var md = int.MaxValue;
+                var v = -1;
+                for (int i = 0; i < _graph.VertexCount(); i++) 
                 {
-                    int cost = d[currentVertex] + _graph.Weight(currentVertex, n);
-                    if(cost < d[n])
+                    if (!visited[i] && d[i] < md)
                     {
-                        d[n] = cost;
-                        parents[n] = currentVertex;
+                        md = d[i];
+                        v = i;
                     }
                 }
 
-                used[currentVertex] = true;
+                if (md == int.MaxValue)
+                {
+                    distance = 0;
+                    return new List<int>();
+                }
 
-                currentVertex = GetMinDistanceVertex(used, d);
+                visited[v] = true;
+
+                var neighbors = _graph.AdjacencyList(v);
+                foreach (var n in neighbors)
+                {
+                    var nd = d[v] + _graph.Weight(v, n);
+                    if (nd < d[n])
+                    {
+                        d[n] = nd;
+                        parents[n] = v;
+                    }
+                }
             }
 
             distance = d[end];
@@ -61,9 +74,9 @@ namespace GraphShortestWays.Algoritms
             int min = int.MaxValue;
             int minIndex = -1;
 
-            for(int i = 0; i < d.Length; i++)
+            for (int i = 0; i < d.Length; i++)
             {
-                if (!used[i] & min > d[i]) 
+                if (!used[i] & min > d[i])
                 {
                     min = d[i];
                     minIndex = i;

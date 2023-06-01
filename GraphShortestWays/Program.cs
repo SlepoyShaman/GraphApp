@@ -30,6 +30,11 @@ try
     var dijkstra = new Dijkstra(graph);
 
     var shortestWay = dijkstra.FindShortestWay(start, end, out int distance).ToArray();
+    if(distance == 0)
+    {
+        output.WriteLine("Нет пути");
+        return;
+    }
     var waySb = new StringBuilder($"({start}, {shortestWay[0]}, {graph.Weight(start, shortestWay[0])}) ");
     for(int i = 0; i < shortestWay.Length - 1; i++)
     {

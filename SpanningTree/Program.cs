@@ -29,7 +29,7 @@ namespace SpanningTree
                     if (args[i] == "-k")
                     {
                         int summ = 0;
-                        var lst = SearchSpanningTree.Kruskal(graph.AdjacencyMatrix(), out summ);
+                        var lst = SearchSpanningTree.Kruskal(graph.GetCorrelatedMatrix(), out summ);
 
                         string ans = lst.ToEdgeListString();
                         output.WriteLine(ans);
@@ -40,7 +40,7 @@ namespace SpanningTree
                     if (args[i] == "-p")
                     {
                         int summ = 0;
-                        var lst = SearchSpanningTree.Prim(graph.AdjacencyMatrix(), out summ);
+                        var lst = SearchSpanningTree.Prim(graph.GetCorrelatedMatrix(), out summ);
 
                         string ans = lst.ToEdgeListString();
 
@@ -53,7 +53,7 @@ namespace SpanningTree
                     if (args[i] == "-b")
                     {
                         int summ = 0;
-                        var lst = SearchSpanningTree.Boruvka(graph.AdjacencyMatrix(), out summ);
+                        var lst = SearchSpanningTree.Boruvka(graph.GetCorrelatedMatrix(), out summ);
 
                         string ans = lst.ToEdgeListString();
 
@@ -67,7 +67,7 @@ namespace SpanningTree
                         Stopwatch stopwatch = new Stopwatch();
                         int summ = 0;
                         stopwatch.Start();
-                        var lst = SearchSpanningTree.Kruskal(graph.AdjacencyMatrix(), out summ);
+                        var lst = SearchSpanningTree.Kruskal(graph.GetCorrelatedMatrix(), out summ);
                         stopwatch.Stop();
                         string ans = lst.ToEdgeListString();
                         output.WriteLine(ans);
@@ -77,7 +77,7 @@ namespace SpanningTree
 
                         stopwatch.Reset();
                         stopwatch.Start();
-                        lst = SearchSpanningTree.Prim(graph.AdjacencyMatrix(), out summ);
+                        lst = SearchSpanningTree.Prim(graph.GetCorrelatedMatrix(), out summ);
                         stopwatch.Stop();
                         ans = lst.ToEdgeListString();
                         output.WriteLine(ans);
@@ -87,7 +87,7 @@ namespace SpanningTree
 
                         stopwatch.Reset();
                         stopwatch.Start();
-                        lst = SearchSpanningTree.Boruvka(graph.AdjacencyMatrix(), out summ);
+                        lst = SearchSpanningTree.Boruvka(graph.GetCorrelatedMatrix(), out summ);
                         stopwatch.Stop();
                         ans = lst.ToEdgeListString();
                         output.WriteLine(ans);

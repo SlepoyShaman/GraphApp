@@ -22,7 +22,7 @@ namespace GraphApp.Objects
         public bool IsEdge(int v1, int v2)
         {
             if (v1 > _matrix.Count || v2 > _matrix.Count || v1 < 0 || v2 < 0)
-                throw new Exception("Обращение к несуществующей вершине!");
+                throw new Exception($"Обращение к несуществующей вершине! Обращение к {v1}, {v2}");
 
             return _matrix[v1][v2] != 0;
         }

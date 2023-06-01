@@ -2,7 +2,7 @@
   "profiles": {
     "DistanceFromGivenVertex": {
       "commandName": "Project",
-      "commandLineArgs": "-m matrix_t6_008.txt -n 26 -t"
+      "commandLineArgs": "-m \"C:\\Users\\Никита\\OneDrive\\Рабочий стол\\графы исходные данные\\matrix_t6_004.txt\" -n 1 -t"
     }
   }
 }
