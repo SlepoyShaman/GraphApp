@@ -1,0 +1,8 @@
+{
+  "profiles": {
+    "Hamilton": {
+      "commandName": "Project",
+      "commandLineArgs": "-m matrix_t9_102.txt"
+    }
+  }
+}
