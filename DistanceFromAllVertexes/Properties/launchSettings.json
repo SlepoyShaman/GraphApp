@@ -1,8 +1,0 @@
-{
-  "profiles": {
-    "DistanceFromAllVertexes": {
-      "commandName": "Project",
-      "commandLineArgs": "-m \"C:\\Users\\Никита\\OneDrive\\Рабочий стол\\графы исходные данные\\matrix_t7_007.txt\""
-    }
-  }
-}

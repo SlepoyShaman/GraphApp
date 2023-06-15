@@ -1,0 +1,8 @@
+{
+  "profiles": {
+    "MaxMatching": {
+      "commandName": "Project",
+      "commandLineArgs": "-m matrix_t11_002.txt"
+    }
+  }
+}

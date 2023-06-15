@@ -1,8 +1,0 @@
-{
-  "profiles": {
-    "GraphPairs": {
-      "commandName": "Project",
-      "commandLineArgs": "-m \"C:\\Users\\Никита\\OneDrive\\Рабочий стол\\графы исходные данные\\matrix_t11_004.txt\""
-    }
-  }
-}

@@ -1,8 +1,0 @@
-{
-  "profiles": {
-    "DistanceFromGivenVertex": {
-      "commandName": "Project",
-      "commandLineArgs": "-m \"C:\\Users\\Никита\\OneDrive\\Рабочий стол\\графы исходные данные\\matrix_t6_004.txt\" -n 1 -t"
-    }
-  }
-}

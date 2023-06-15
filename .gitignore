@@ -479,3 +479,10 @@ $RECYCLE.BIN/
 /GraphShortestWays/Properties/launchSettings.json
 /GraphMaxFlow/Properties/launchSettings.json
 /MapShortestWays/Properties/launchSettings.json
+/GraphPairs/Properties/launchSettings.json
+/Hamilton/Properties/launchSettings.json
+/SpanningTree/Properties/launchSettings.json
+/GraphConnectivity/Properties/launchSettings.json
+/GraphApp/Properties/launchSettings.json
+/DistanceFromGivenVertex/Properties/launchSettings.json
+/DistanceFromAllVertexes/Properties/launchSettings.json

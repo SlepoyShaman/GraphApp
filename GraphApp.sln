@@ -24,7 +24,11 @@ Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "DistanceFromGivenVertex", "
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "DistanceFromAllVertexes", "DistanceFromAllVertexes\DistanceFromAllVertexes.csproj", "{81E8F052-3ABC-4362-B6C4-AA8424F84913}"
 EndProject
+<<<<<<< HEAD
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "GraphPairs", "GraphPairs\GraphPairs.csproj", "{C525C7F0-27F2-441B-B53B-834545AECEFB}"
+=======
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Hamilton", "Hamilton\Hamilton.csproj", "{6AA55151-D666-434A-84EB-5EDCD549BF89}"
+>>>>>>> 1b13b0f2278dea656e0276cbf2a85c983f47e54e
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -68,10 +72,17 @@ Global
 		{81E8F052-3ABC-4362-B6C4-AA8424F84913}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{81E8F052-3ABC-4362-B6C4-AA8424F84913}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{81E8F052-3ABC-4362-B6C4-AA8424F84913}.Release|Any CPU.Build.0 = Release|Any CPU
+<<<<<<< HEAD
 		{C525C7F0-27F2-441B-B53B-834545AECEFB}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
 		{C525C7F0-27F2-441B-B53B-834545AECEFB}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{C525C7F0-27F2-441B-B53B-834545AECEFB}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{C525C7F0-27F2-441B-B53B-834545AECEFB}.Release|Any CPU.Build.0 = Release|Any CPU
+=======
+		{6AA55151-D666-434A-84EB-5EDCD549BF89}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{6AA55151-D666-434A-84EB-5EDCD549BF89}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{6AA55151-D666-434A-84EB-5EDCD549BF89}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{6AA55151-D666-434A-84EB-5EDCD549BF89}.Release|Any CPU.Build.0 = Release|Any CPU
+>>>>>>> 1b13b0f2278dea656e0276cbf2a85c983f47e54e
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
