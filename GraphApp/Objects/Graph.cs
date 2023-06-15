@@ -11,6 +11,11 @@ namespace GraphApp.Objects
             _matrix = factory.GetMatrix();
         }
 
+        public Graph(List<List<int>> matrix)
+        {
+            _matrix = matrix;
+        }
+
         public int VertexCount() => _matrix.Count;
 
         public int Weight(int v1, int v2)

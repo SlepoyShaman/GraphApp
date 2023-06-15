@@ -109,20 +109,6 @@ namespace GraphMaxFlow.Algoritms
             return resultInEdges;
         }
 
-        private int FindMinWeight(IEnumerable<(int v, int u, int weight)> edges)
-        {
-            int min = edges.First().weight;
-            foreach (var edge in edges)
-            {
-                if (edge.weight < min)
-                {
-                    min = edge.weight;
-                }
-            }
-
-            return min;
-        }
-
         private static int FindSource(List<List<int>> matrix)
         {
             for(int j = 0; j < matrix.Count; j++)

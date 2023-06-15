@@ -1,5 +1,4 @@
 ﻿using GraphApp.Objects;
-using System;
 
 namespace GraphShortestWays.Algoritms
 {
@@ -21,7 +20,6 @@ namespace GraphShortestWays.Algoritms
 
             while (!visited[end])
             {
-                // выбор необработанной вершины с минимальной пометкой distance
                 var md = int.MaxValue;
                 var v = -1;
                 for (int i = 0; i < _graph.VertexCount(); i++) 
@@ -67,23 +65,6 @@ namespace GraphShortestWays.Algoritms
 
             route.Reverse();
             return route;
-        }
-
-        private int GetMinDistanceVertex(bool[] used, int[] d)
-        {
-            int min = int.MaxValue;
-            int minIndex = -1;
-
-            for (int i = 0; i < d.Length; i++)
-            {
-                if (!used[i] & min > d[i])
-                {
-                    min = d[i];
-                    minIndex = i;
-                }
-            }
-
-            return minIndex;
         }
     }
 }
