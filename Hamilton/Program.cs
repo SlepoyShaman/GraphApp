@@ -1,5 +1,6 @@
 ﻿using GraphApp.IO;
 using GraphApp.Objects;
+using System.Text;
 
 namespace Hamilton
 {
@@ -21,8 +22,17 @@ namespace Hamilton
 
                 var res = Run(graph.AdjacencyMatrix(), 4, 1, 1, 0.66, 0.3, 50000);
 
+                var str = new StringBuilder();
 
+                str.Append($"Hamiltonian cycle has length {res.dlina}.\n");
+                
+                foreach ( var item in res.listOfEdge )
+                {
+                    str.Append($"{item.Item1 + 1} - {item.Item2 + 1} : {graph.AdjacencyMatrix()[item.Item1][item.Item2]} \n");
+                }
 
+                output.WriteLine(str.ToString());
+                str.Clear();
 
             }
             catch(Exception ex)
@@ -74,7 +84,7 @@ namespace Hamilton
                         {
                             if (now == m) continue;
                             if (hs.Contains(m)) continue;
-                            znamenatel += phermone[now, m] * (4 / (double)_matix[now][m]);
+                            znamenatel += Math.Pow(phermone[now, m], alfa)  * Math.Pow((4 / (double)_matix[now][m]), beta);
                         }
 
                         // считаем вероятности до всех следующих вершин
@@ -84,7 +94,7 @@ namespace Hamilton
                             if (hs.Contains(j)) continue;
 
                             // числитель вероятности
-                            double chislitel = phermone[now, j] * (4 / (double)_matix[now][j]); // фермоны на ребре * близость
+                            double chislitel = Math.Pow(phermone[now, j], alfa) * Math.Pow((4 / (double)_matix[now][j]), beta); // фермоны на ребре * близость
 
                             nextVertex.Add((j, chislitel / znamenatel));
                         }
